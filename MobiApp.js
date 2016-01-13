@@ -1,4 +1,7 @@
+//Global Variables
 Issues = new Mongo.Collection('issues');
+
+// Routing
 
 Router.route('/', function () {
   // render the Home template with a custom data context
@@ -10,6 +13,9 @@ Router.route('/upload');
 
 // when you navigate to "/login" automatically render the template named "Login".
 Router.route('/newIssue');
+
+
+// Client
 
 if (Meteor.isClient) {
   Template.newIssue.events({
@@ -23,11 +29,15 @@ if (Meteor.isClient) {
         status: 'open',
         lat: Geolocation.latLng().lat,
         lng: Geolocation.latLng().lng,
-        userID: Meteor.userId()
+        userID: Meteor.userId(),
+        imageURL: Session.get('imageURL')
       });
     }
   });
+  
 }
+
+// Server
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
