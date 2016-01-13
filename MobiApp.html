@@ -4,9 +4,8 @@
 
 <body>
   <div class="container">
+    {{> loginButtons}}
     <h1>MobiAPP</h1>
-
-    {{> newIssue}}
   </div>
 </body>
 
@@ -32,4 +31,10 @@
       </div>
 
     </form>
+</template>
+
+<template name="upload">
+    <h1>Image Upload</h1>
+    <input type="file" class="myFileInput" accept="image/*">
+    <p>Image URL: {{imageURL}}</p>
 </template>

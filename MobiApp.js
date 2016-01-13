@@ -1,18 +1,17 @@
 Issues = new Mongo.Collection('issues');
 
+Router.route('/', function () {
+  // render the Home template with a custom data context
+  this.render('newIssue');
+});
+
+// when you navigate to "/one" automatically render the template named "One".
+Router.route('/upload');
+
+// when you navigate to "/login" automatically render the template named "Login".
+Router.route('/newIssue');
+
 if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault('counter', 0);
-
-  Template.newIssue.helpers({
-    'issue': function(){
-      return "Some other text"
-    },
-    'other': function(){
-      return "Try"
-    }
-  });
-
   Template.newIssue.events({
     'submit form': function(){
       var title = event.target.title.value;
@@ -21,7 +20,10 @@ if (Meteor.isClient) {
       Issues.insert({
         title: title,
         description: description,
-        status: 'open'
+        status: 'open',
+        lat: Geolocation.latLng().lat,
+        lng: Geolocation.latLng().lng,
+        userID: Meteor.userId()
       });
     }
   });
