@@ -26,3 +26,8 @@ Router.route('/issues-list', function () {
   this.render('IssuesList');
   this.render('Footer', {to: 'footer'}); 
 });
+
+//navigate to submited issues
+Router.route('/dashboard', function () {
+  this.render('dashboard');
+});
