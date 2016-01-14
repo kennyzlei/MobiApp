@@ -6,7 +6,12 @@
     <nav class="navbar navbar-static-top" role="navigation">
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-
+          {{#if currentUser}}
+            <a href="#" class="btn btn-default navbar-btn">YOU ARE LOGGED IN</a>
+          {{else}}
+            <a href="{{ pathFor 'atSignIn' }}" class="btn btn-default navbar-btn">Sign in</a>
+            <a href="{{ pathFor 'atSignUp' }}" class="btn btn-primary navbar-btn">Register</a>
+          {{/if}}
         </ul>
       </div>
     </nav>

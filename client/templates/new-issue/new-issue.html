@@ -1,0 +1,23 @@
+<template name="newIssue">
+  <div class="alert alert-success" role="alert">
+    <span class="glyphicon glyphicon-map-marker"></span>
+    <strong>New Issue</strong>
+  </div>
+    <form>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Title</label>
+        <div class="col-sm-10">
+          <input name="title" type="text" class="form-control" id="issue-title" placeholder="Title">
+        </div>
+
+        <label class="col-sm-2 control-label">Description</label>
+        <div class="col-sm-10">
+          <!-- <input type="text" class="form-control" id="issue-description" placeholder="Description"> -->
+          <textarea class="description form-control js-quick-submit js-gfm-input markdown-area" name="description" id="issue-description" placeholder="Description"></textarea>
+          <input type="file" class="myFileInput" accept="image/*">
+          <input type="submit" class="btn btn-primary" value="Submit Issue"/>
+        </div>
+      </div>
+
+    </form>
+</template>

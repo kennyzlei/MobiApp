@@ -1,0 +1,5 @@
+NewIssueController = AppController.extend({
+  data: {
+
+  }
+});
