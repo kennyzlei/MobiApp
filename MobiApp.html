@@ -2,12 +2,43 @@
     <title>MobiAPP</title>
 </head>
 
-<body>
-  <div class="container">
-    {{> loginButtons}}
-    <h1>MobiAPP</h1>
-  </div>
-</body>
+<template name="ApplicationLayout">
+  <header>
+    <h1>{{title}}</h1>
+  </header>
+
+  <body>
+    <div class="container">
+      {{> loginButtons}}
+      <h1>MobiAPP</h1>
+    </div>
+  </body>
+
+  <nav>
+    <ul>
+      <li>
+        <a href="/">Submit New Issue</a>
+      </li>
+
+      <li>
+        <a href="/issues-list">See Submitted</a>
+      </li>
+
+      <li>
+        <a href="/about">About Us</a>
+      </li>      
+    </ul>
+  </nav>
+
+  <article>
+    {{> yield}}
+  </article>
+
+  <footer>
+    {{> yield "footer"}}
+  </footer>
+
+</template>
 
 <template name="newIssue">
   <div class="alert alert-success" role="alert">
@@ -39,4 +70,19 @@
     <h1>Image Upload</h1>
     <input type="file" class="myFileInput" accept="image/*">
     <p>Image URL: {{imageURL}}</p>
+</template>
+
+<template name="IssuesList">
+  Home
+</template>
+
+<template name="About">
+  About
+</template>
+
+<template name="Footer">
+  <div class='container'>
+    <hr />
+    <p>Copyright &copy; Mobilab, 2015.</p>
+  </div>
 </template>
