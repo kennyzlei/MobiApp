@@ -84,7 +84,10 @@
 </template>
 
 <template name="task">
-  <li>{{title}} | {{description}} | {{status}} | {{createdAt}}</li>
+  <li class="{{#if checked}}checked{{/if}}">
+    <button class="edit">Edit</button>
+    <span class="text">{{title}} | {{description}} | {{status}} | {{createdAt}}</span>
+  </li>  
 </template>
 
 <template name="About">
