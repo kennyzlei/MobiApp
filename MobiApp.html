@@ -5,38 +5,35 @@
 <template name="ApplicationLayout">
 
   <body>
+    <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">MobiAPP</a>
+      </div>
 
-
-
-  <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">MobiAPP</a>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="/new-issue">New Issue</a></li>
+          <li><a href="/issues-list">See Submitted</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/about">About Us</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              {{> loginButtons}}
+            </ul>
+          </li>        
+        </ul>     
+      </div>
     </div>
-
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a href="/new-issue">Submit New Issue</a></li>
-        <li><a href="/issues-list">See Submitted</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="/about">About Us</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            {{> loginButtons}}
-          </ul>
-        </li>        
-      </ul>     
-    </div>
-  </div>
-</nav>
+  </nav>
   </body>
   <article>
     {{> yield}}
@@ -62,27 +59,63 @@
 </template>
 
 <template name="newIssue">
-  <div class="alert alert-success" role="alert">
-    <span class="glyphicon glyphicon-map-marker"></span>
-    <strong>New Issue</strong>
-  </div>
-    <form>
-      <div class="form-group">
-        <label class="col-sm-2 control-label">Title</label>
-        <div class="col-sm-10">
-          <input name="title" type="text" class="form-control" id="issue-title" placeholder="Title">
-        </div>
 
-        <label class="col-sm-2 control-label">Description</label>
-        <div class="col-sm-10">
-          <!-- <input type="text" class="form-control" id="issue-description" placeholder="Description"> -->
-          <textarea class="description form-control js-quick-submit js-gfm-input markdown-area" name="description" id="issue-description" placeholder="Description"></textarea>
-          <input type="file" class="myFileInput" accept="image/*">
-          <input type="submit" class="btn btn-primary" value="Submit Issue"/>
-        </div>
+
+
+<form class="form-horizontal">
+  <fieldset>
+    <legend>Submit the issue</legend>
+
+    <div class="form-group">
+      <label for="issue-title" class="col-lg-2 control-label">Title</label>
+      <div class="col-lg-10">
+        <span class="help-block">How would you call what you report?</span>
+        <input name="title" type="text" class="form-control" id="issue-title" placeholder="Title of issue">
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="issue-description" class="col-lg-2 control-label">Description</label>
+      <div class="col-lg-10">
+        <span class="help-block">Give us a short description.</span>
+        <textarea class="form-control" rows="3" name="description" id="issue-description" placeholder="Describe here"></textarea>
       </div>
 
-    </form>
+    </div> 
+    <div class="form-group">
+      <label for="file-submit" class="col-lg-2 control-label">Photo</label>
+      <div class="col-lg-10" id="file-submit">
+        <span class="help-block">Show us how it looks like.</span>
+        <input type="file" class="myFileInput"  accept="image/*">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="select" class="col-lg-2 control-label">Selects</label>
+      <div class="col-lg-10" id="select">
+        <span class="help-block">Whom should we inform?</span>
+        <select multiple="" class="form-control" >
+          <option>São Paulo Transport</option>
+          <option>Police</option>
+          <option>Prefeitura</option>
+          <option>Other</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox"> Receive updates about the issue.
+          </label>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary" value="Submit Issue" style="float: left;">Submit</button>        
+        <button type="reset" class="btn btn-default" style="float: right;">Cancel</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
 </template>
 
 <template name="IssuesList">
