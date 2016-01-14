@@ -17,12 +17,12 @@ Router.route('/new-issue', function () {
 Router.route('/about', function () {
   this.layout('ApplicationLayout');
   this.render('About');
-  this.render('Footer', {to: 'footer'});  
+  this.render('Footer', {to: 'footer'});
 });
 
 //navigate to submited issues
 Router.route('/issues-list', function () {
   this.layout('ApplicationLayout');
   this.render('IssuesList');
-  this.render('Footer', {to: 'footer'}); 
+  this.render('Footer', {to: 'footer'});
 });

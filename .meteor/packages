@@ -16,13 +16,31 @@ standard-minifiers      # JS/CSS minifiers run for production mode
 es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
 
-autopublish             # Publish all data to the clients (for prototyping)
 insecure                # Allow all DB writes from clients (for prototyping)
-twbs:bootstrap
 cfs:gridfs
 cfs:standard-packages
 iron:router
 accounts-ui
-accounts-password
 accounts-facebook
 mdg:geolocation
+useraccounts:iron-routing
+alanning:roles
+zimme:iron-router-active
+cmather:handlebars-server@0.2.0
+dburles:collection-helpers
+reywood:publish-composite
+momentjs:moment
+mrt:underscore-string-latest
+matb33:collection-hooks
+dburles:factory
+anti:fake
+cunneen:mailgun
+yasinuslu:blaze-meta
+aldeed:collection2
+aldeed:autoform
+mizzao:jquery-ui
+
+meteor-platform
+less
+accounts-password
+useraccounts:bootstrap
