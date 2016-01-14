@@ -14,7 +14,11 @@
   <nav>
     <ul>
       <li>
-        <a href="/">Submit New Issue</a>
+        <a href="/">Home</a>
+      </li>
+      
+      <li>
+        <a href="/new-issue">Submit New Issue</a>
       </li>
 
       <li>
@@ -37,6 +41,19 @@
 
 </template>
 
+<template name="Home">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6 col-md-3">
+          <a href="/new-issue"><img src="images/new-issue.png" style="max-width:100%;"></a>
+      </div>
+      <div class="col-xs-6 col-md-3">
+          <a href="/issues-list"><img src="images/issues-list.png" style="max-width:100%;"></a>
+      </div>
+    </div>
+  </div>
+</template>
+
 <template name="newIssue">
   <div class="alert alert-success" role="alert">
     <span class="glyphicon glyphicon-map-marker"></span>
@@ -53,20 +70,12 @@
         <div class="col-sm-10">
           <!-- <input type="text" class="form-control" id="issue-description" placeholder="Description"> -->
           <textarea class="description form-control js-quick-submit js-gfm-input markdown-area" name="description" id="issue-description" placeholder="Description"></textarea>
+          <input type="file" class="myFileInput" accept="image/*">
+          <input type="submit" class="btn btn-primary" value="Submit Issue"/>
         </div>
-        
-        <input type="file" class="myFileInput" accept="image/*">
-
-        <input type="submit" class="btn btn-primary" value="Submit Issue"/>
       </div>
 
     </form>
-</template>
-
-<template name="upload">
-    <h1>Image Upload</h1>
-    <input type="file" class="myFileInput" accept="image/*">
-    <p>Image URL: {{imageURL}}</p>
 </template>
 
 <template name="IssuesList">

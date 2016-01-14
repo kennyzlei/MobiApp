@@ -2,8 +2,11 @@
 Issues = new Mongo.Collection('issues');
 
 // Routing
+Router.route('/', function() {
+  this.render('Home');
+});
 
-Router.route('/', function () {
+Router.route('/new-issue', function () {
   // render the Home template with newIssue submission
   this.layout('ApplicationLayout');
   this.render('newIssue');
@@ -23,12 +26,3 @@ Router.route('/issues-list', function () {
   this.render('IssuesList');
   this.render('Footer', {to: 'footer'}); 
 });
-
-
-//-----------------------------------------TO BE DELETED: WAITS FOR REVISION ------------------------------------------
-// when you navigate to "/one" automatically render the template named "One".
-Router.route('/upload');
-
-// when you navigate to "/login" automatically render the template named "Login".
-Router.route('/newIssue');
-//----------------------------------------------------------------------------------------------------------------------
