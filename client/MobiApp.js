@@ -11,7 +11,19 @@ Template.newIssue.events({
       lat: Geolocation.latLng().lat,
       lng: Geolocation.latLng().lng,
       userID: Meteor.userId(),
-      imageURL: Session.get('imageURL')
+      imageURL: Session.get('imageURL'),
+      createdAt: new Date(),
+      lastModified: new Date()
     });
   }
+});
+
+Template.IssuesList.helpers({
+  title: function(){
+    return "Status of Submitted"
+  },
+  issues: function () {
+      // Show newest tasks at the top
+      return Issues.find({}, {sort: {createdAt: 1}})
+    }
 });

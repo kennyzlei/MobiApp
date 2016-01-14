@@ -3,9 +3,6 @@
 </head>
 
 <template name="ApplicationLayout">
-  <header>
-    <h1>{{title}}</h1>
-  </header>
 
   <body>
     <div class="container">
@@ -73,11 +70,28 @@
 </template>
 
 <template name="IssuesList">
-  Home
+
+  <div class="container">
+    <h2>{{title}}</h2>
+
+    <ul>
+      <li>Title | Description | Status | created</li>
+      {{#each issues}}
+        {{> task}}
+      {{/each}}
+    </ul>
+  </div>
+</template>
+
+<template name="task">
+  <li>{{title}} | {{description}} | {{status}} | {{createdAt}}</li>
 </template>
 
 <template name="About">
-  About
+<div class='container'>
+  <h2>About the project</h2>
+  Created by group 4
+</div>
 </template>
 
 <template name="Footer">
