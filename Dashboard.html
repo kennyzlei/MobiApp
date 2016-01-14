@@ -1,0 +1,539 @@
+<template name="dashboard">
+    <div class="wrapper skin-blue sidebar-mini">
+
+      <!-- Main Header -->
+      <header class="main-header">
+
+        <!-- Logo -->
+        <a class="logo">
+          <!-- mini logo for sidebar mini 50x50 pixels -->
+          <span class="logo-mini"><b>M</b>A</span>
+          <!-- logo for regular state and mobile devices -->
+          <span class="logo-lg"><b>Mobi</b>App<sup>TM</sup></span>
+        </a>
+
+        <!-- Header Navbar -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- Sidebar toggle button-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+          </a>
+          <!-- Navbar Right Menu -->
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <!-- Messages: style can be found in dropdown.less-->
+              <li class="dropdown messages-menu">
+                <!-- Menu toggle button -->
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-envelope-o"></i>
+                  <span class="label label-success">4</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header">You have 4 messages</li>
+                  <li>
+                    <!-- inner menu: contains the messages -->
+                    <ul class="menu">
+                      <li><!-- start message -->
+                        <a href="#">
+                          <div class="pull-left">
+                            <!-- User Image -->
+                            <img src="dist/img/Paulo.jpg" class="img-circle" alt="User Image">
+                          </div>
+                          <!-- Message title and timestamp -->
+                          <h4>
+                            Support Team
+                            <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                          </h4>
+                          <!-- The message -->
+                          <p>Why not buy a new awesome theme?</p>
+                        </a>
+                      </li><!-- end message -->
+                    </ul><!-- /.menu -->
+                  </li>
+                  <li class="footer"><a href="#">See All Messages</a></li>
+                </ul>
+              </li><!-- /.messages-menu -->
+
+              <!-- Notifications Menu -->
+              <li class="dropdown notifications-menu">
+                <!-- Menu toggle button -->
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-bell-o"></i>
+                  <span class="label label-warning">2</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header">You have 2 notifications</li>
+                  <li>
+                    <!-- Inner Menu: contains the notifications -->
+                    <ul class="menu">
+                      <li><!-- start notification -->
+                        <a href="#">
+                          <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                        </a>
+                      </li><!-- end notification -->
+                    </ul>
+                  </li>
+                  <li class="footer"><a href="#">View all</a></li>
+                </ul>
+              </li>
+              <!-- Tasks Menu -->
+              <li class="dropdown tasks-menu">
+                <!-- Menu Toggle Button -->
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-flag-o"></i>
+                  <span class="label label-danger">9</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header">You have 9 tasks</li>
+                  <li>
+                    <!-- Inner menu: contains the tasks -->
+                    <ul class="menu">
+                      <li><!-- Task item -->
+                        <a href="#">
+                          <!-- Task title and progress text -->
+                          <h3>
+                            Design some buttons
+                            <small class="pull-right">20%</small>
+                          </h3>
+                          <!-- The progress bar -->
+                          <div class="progress xs">
+                            <!-- Change the css width attribute to simulate progress -->
+                            <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                              <span class="sr-only">20% Complete</span>
+                            </div>
+                          </div>
+                        </a>
+                      </li><!-- end task item -->
+                    </ul>
+                  </li>
+                  <li class="footer">
+                    <a href="#">View all tasks</a>
+                  </li>
+                </ul>
+              </li>
+              <!-- User Account Menu -->
+              <li class="dropdown user user-menu">
+                <!-- Menu Toggle Button -->
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <!-- The user image in the navbar-->
+                  <img src="dist/img/Paulo.jpg" class="user-image" alt="User Image">
+                  <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                  <span class="hidden-xs">Administrator Paulo</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- The user image in the menu -->
+                  <li class="user-header">
+                    <img src="dist/img/Paulo.jpg" class="img-circle" alt="User Image">
+                    <p>
+                      Alexander Pierce - Web Developer
+                      <small>Member since Nov. 2012</small>
+                    </p>
+                  </li>
+                  <!-- Menu Body -->
+                  <li class="user-body">
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Followers</a>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Sales</a>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Friends</a>
+                    </div>
+                  </li>
+                  <!-- Menu Footer-->
+                  <li class="user-footer">
+                    <div class="pull-left">
+                      <a href="#" class="btn btn-default btn-flat">Profile</a>
+                    </div>
+                    <div class="pull-right">
+                      <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+              <!-- Control Sidebar Toggle Button -->
+              <li>
+                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside class="main-sidebar">
+
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+
+          <!-- Sidebar user panel (optional) -->
+          <div class="user-panel">
+            <div class="pull-left image">
+              <img src="dist/img/Paulo.jpg" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+              <p>Administrator Paulo</p>
+              <!-- Status -->
+              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+          </div>
+
+          <!-- search form (Optional) -->
+          <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+              <input type="text" name="q" class="form-control" placeholder="Search...">
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </form>
+          <!-- /.search form -->
+
+          <!-- Sidebar Menu -->
+          <ul class="sidebar-menu">
+            <li class="header">Main Navigation</li>
+            <!-- Optionally, you can add icons to the links -->
+           <li class="treeview">
+              <a href="#"><i class="fa fa-link"></i> <span>Complaints</span> <i class="fa fa-angle-left pull-right"></i></a>
+              <ul class="treeview-menu">
+                <li><a href="AllComplaints.html">View All Complaints</a></li>
+              </ul>
+            </li>
+            <li><a href="#Charts"><i class="fa fa-link"></i> <span>Charts</span></a></li>
+            <li><a href="#Map"><i class="fa fa-link"></i> <span>Map</span></a></li>
+          </ul><!-- /.sidebar-menu -->
+        </section>
+        <!-- /.sidebar -->
+      </aside>
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Dashboard
+            <small> Control Panel</small>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="starter.html"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active"></li>
+          </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+       
+<!-- Small boxes (Stat box) -->
+          <div class="row">
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-aqua">
+                <div class="inner">
+                  <h3>150</h3>
+                  <p>New</p>
+                </div>
+                <div class="icon">
+                  <i class="fa fa-fw fa-file"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-yellow">
+                <div class="inner">
+                  <h3>53<sup style="font-size: 20px"></sup></h3>
+                  <p>Pending</p>
+                </div>
+                <div class="icon">
+                  <i class="fa fa-clock-o"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-green">
+                <div class="inner">
+                  <h3>44</h3>
+                  <p>Solved</p>
+                </div>
+                <div class="icon">
+                  <i class="fa fa-fw fa-check-square"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-red">
+                <div class="inner">
+                  <h3>65/min</h3>
+                  <p>Rate of New Complaints</p>
+                </div>
+                <div class="icon">
+                  <i class="glyphicon glyphicon-stats"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+          </div><!-- /.row -->
+
+          <!-- TABLE: LATEST ORDERS -->
+              <div class="box box-info">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Task Queue</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                  </div>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <div class="table-responsive">
+                    <table class="table no-margin">
+                      <thead>
+                        <tr>
+                          <th>ID</th>
+                          <th>Time Stamp </th>
+                          <th>Description</th>
+                          <th>Status</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><a href="#">A201401244F13</a></td>
+                          <td>10/20/2015 10:16:15h</td>
+                          <td>Acabou de acontecer um acidente aqui na Paulista! Dois ônibus bateram...</td>
+                          <td><span class="label label-info">New</span></td>
+                          <td><div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div></td>
+                        </tr>
+                        <tr>
+                          <td><a href="#">A201401244F18</a></td>
+                          <td>10/20/2015 10:15:55h</td>
+                          <td>Acabou de ocorrer um assalto na rua Augusta! O local está na foto, olhem...</td>
+                          <td><span class="label label-info">New</span></td>
+                          <td><div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div></td>
+                        </tr>
+                        <tr>
+                          <td><a href="#">A201401884F13</a></td>
+                          <td>10/20/2015 10:15:30h</td>
+                          <td>Há um senhor passando mal na 25 de março, e não há ninguém para ajudar ele...</td>
+                          <td><span class="label label-info">New</span></td>
+                          <td><div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div></td>
+                        </tr>
+                        <tr>
+                          <td><a href="#">A440131244G14</a></td>
+                          <td>10/20/2015 10:15:27h</td>
+                          <td>Taxi parando ilegalmente na avenida Paulista, na altura do MASP. Foto anex...</td>
+                          <td><span class="label label-warning">Pending</span></td>
+                          <td><div class="sparkbar" data-color="#00c0ef" data-height="20">90,80,-90,70,-61,83,63</div></td>
+                        </tr>
+                        <tr>
+                          <td><a href="#">A202201333F10</a></td>
+                          <td>10/20/2015 10:14:55h</td>
+                          <td>Olhem só! Um ônibus da linha 485 com duas cadeiras quebradas! Um absurdo...</td>
+                          <td><span class="label label-warning">Pending</span></td>
+                          <td><div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div></td>
+                        </tr>
+                        <tr>
+                          <td><a href="#">A103415234P12</a></td>
+                          <td>10/20/2015 10:10:20h</td>
+                          <td>Meia hora de espera no ponto de ônibus, e quando ele chega a porta está queb...</td>
+                          <td><span class="label label-success">Solved</span></td>
+                          <td><div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div></td>
+                        </tr>
+                        <tr>
+                          <td><a href="#">A201401244F15</a></td>
+                          <td>10/20/2015 10:00:05h</td>
+                          <td>Desrespeito! Mais um tarado nos ônibus do centro da cidade. Quando isso v...</td>
+                          <td><span class="label label-success">Solved</span></td>
+                          <td><div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div><!-- /.table-responsive -->
+                  
+                </div><!-- /.box-body -->
+                <div class="box-footer clearfix">
+                  <a href="javascript::;" class="btn btn-sm btn-info btn-flat pull-left">Create New Complaint</a>
+                  <a href="allcomplaints.html" class="btn btn-sm btn-default btn-flat pull-right">View All Complaints</a>
+                </div><!-- /.box-footer -->
+              </div><!-- /.box -->
+
+<!-- interactive chart -->
+        <div id = "Charts"></div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="box box-primary">
+                <div class="box-header with-border">
+                  <i class="fa fa-bar-chart-o"></i>
+                  <h3 class="box-title">Interactive Area Chart</h3>
+                  <div class="box-tools pull-right">
+                    Real time
+                    <div class="btn-group" id="realtime" data-toggle="btn-toggle">
+                      <button type="button" class="btn btn-default btn-xs active" data-toggle="on">On</button>
+                      <button type="button" class="btn btn-default btn-xs" data-toggle="off">Off</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="box-body">
+                  <div id="interactive" style="height: 300px;"></div>
+                </div><!-- /.box-body-->
+              </div><!-- /.box -->
+            </div>
+            
+            <!-- BAR CHART -->
+            <div class="col-md-6">
+              <div class="box box-success">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Bar Chart</h3>
+                  <div class="box-tools pull-right">
+                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                  </div>
+                </div>
+                <div class="box-body">
+                  <div class="chart">
+                    <canvas id="barChart" style="height:295px"></canvas>
+                  </div>
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+
+            </div><!-- /.col (RIGHT) -->
+          </div><!-- /.row -->
+
+<!-- interactive chart -->
+              <div class="box box-primary">
+                <div class="box-header with-border">
+                  <i class="fa fa-bar-chart-o"></i>
+                  <h3 class="box-title">Interactive Area Chart</h3>
+                  <div class="box-tools pull-right">
+                    Real time
+                    <div class="btn-group" id="realtime" data-toggle="btn-toggle">
+                      <button type="button" class="btn btn-default btn-xs active" data-toggle="on">On</button>
+                      <button type="button" class="btn btn-default btn-xs" data-toggle="off">Off</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="box-body">
+                  <div id="interactive" style="height: 300px;"></div>
+                </div><!-- /.box-body-->
+              </div><!-- /.box -->
+
+<!-- Map box -->
+            <div id = "Map"></div>
+              <div class="box box-solid bg-light-blue-gradient">
+                <div class="box-header">
+                  <!-- tools box -->
+                  <div class="pull-right box-tools">
+                    <button class="btn btn-primary btn-sm daterange pull-right" data-toggle="tooltip" title="Date range"><i class="fa fa-calendar"></i></button>
+                    <button class="btn btn-primary btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="Collapse" style="margin-right: 5px;"><i class="fa fa-minus"></i></button>
+                  </div><!-- /. tools -->
+
+                  <i class="fa fa-map-marker"></i>
+                  <h3 class="box-title">
+                    Visitors
+                  </h3>
+                </div>
+                <div class="box-body">
+                  <div id="world-map" style="height: 250px; width: 100%;"></div>
+                </div><!-- /.box-body-->
+                <div class="box-footer no-border">
+                  <div class="row">
+                    <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
+                      <div id="sparkline-1"></div>
+                      <div class="knob-label">Visitors</div>
+                    </div><!-- ./col -->
+                    <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
+                      <div id="sparkline-2"></div>
+                      <div class="knob-label">Online</div>
+                    </div><!-- ./col -->
+                    <div class="col-xs-4 text-center">
+                      <div id="sparkline-3"></div>
+                      <div class="knob-label">Exists</div>
+                    </div><!-- ./col -->
+                  </div><!-- /.row -->
+                </div>
+              </div>
+              <!-- /.box -->
+
+          <!-- Your Page Content Here -->
+
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+
+      <!-- Main Footer -->
+      <footer class="main-footer">
+        <!-- To the right -->
+        <div class="pull-right hidden-xs">
+          Anything you want
+        </div>
+        <!-- Default to the left -->
+        <strong>Copyright &copy; 2015 <a>MobiApp<sup>TM</sup></a>.</strong> All rights reserved.
+      </footer>
+
+      <!-- Control Sidebar -->
+      <aside class="control-sidebar control-sidebar-dark">
+        <!-- Create the tabs -->
+        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+          <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+          <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <!-- Home tab content -->
+          <div class="tab-pane active" id="control-sidebar-home-tab">
+            <h3 class="control-sidebar-heading">Recent Activity</h3>
+            <ul class="control-sidebar-menu">
+              <li>
+                <a href="javascript::;">
+                  <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+                  <div class="menu-info">
+                    <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+                    <p>Will be 23 on April 24th</p>
+                  </div>
+                </a>
+              </li>
+            </ul><!-- /.control-sidebar-menu -->
+
+            <h3 class="control-sidebar-heading">Tasks Progress</h3>
+            <ul class="control-sidebar-menu">
+              <li>
+                <a href="javascript::;">
+                  <h4 class="control-sidebar-subheading">
+                    Custom Template Design
+                    <span class="label label-danger pull-right">70%</span>
+                  </h4>
+                  <div class="progress progress-xxs">
+                    <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+                  </div>
+                </a>
+              </li>
+            </ul><!-- /.control-sidebar-menu -->
+
+          </div><!-- /.tab-pane -->
+          <!-- Stats tab content -->
+          <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div><!-- /.tab-pane -->
+          <!-- Settings tab content -->
+          <div class="tab-pane" id="control-sidebar-settings-tab">
+            <form method="post">
+              <h3 class="control-sidebar-heading">General Settings</h3>
+              <div class="form-group">
+                <label class="control-sidebar-subheading">
+                  Report panel usage
+                  <input type="checkbox" class="pull-right" checked>
+                </label>
+                <p>
+                  Some information about this general settings option
+                </p>
+              </div><!-- /.form-group -->
+            </form>
+          </div><!-- /.tab-pane -->
+        </div>
+      </aside><!-- /.control-sidebar -->
+      <!-- Add the sidebar's background. This div must be placed
+           immediately after the control sidebar -->
+      <div class="control-sidebar-bg"></div>
+    </div><!-- ./wrapper -->
+</template>
