@@ -3,7 +3,6 @@
 </head>
 
 <template name="ApplicationLayout">
-
   <body>
     <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -24,12 +23,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/about">About Us</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              {{> loginButtons}}
-            </ul>
-          </li>        
+          <li><a href="/logout">Log Out</a></li>    
         </ul>     
       </div>
     </div>
@@ -153,6 +147,10 @@
   <h2>About the project</h2>
   Created by group 4
 </div>
+</template>
+
+<template name="Login">
+  {{> atForm}}
 </template>
 
 <template name="Footer">

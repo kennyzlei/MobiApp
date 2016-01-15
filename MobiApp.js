@@ -2,6 +2,18 @@
 Issues = new Mongo.Collection('issues');
 
 // Routing
+Router.onBeforeAction(function () {
+  if (!Meteor.userId()) {
+    // if the user is not logged in, render the Login template
+    this.layout('ApplicationLayout');
+    this.render('Login');
+  } else {
+    // otherwise don't hold up the rest of hooks or our route/action function
+    // from running
+    this.next();
+  }
+});
+
 Router.route('/', function() {
   this.render('Home');
 });
@@ -30,4 +42,10 @@ Router.route('/issues-list', function () {
 //navigate to submited issues
 Router.route('/dashboard', function () {
   this.render('dashboard');
+});
+
+Router.route('/logout', function() {
+  AccountsTemplates.logout();
+  this.layout('ApplicationLayout');
+  this.render('Login');
 });
