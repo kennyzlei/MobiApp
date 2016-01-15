@@ -220,7 +220,22 @@
         <!-- Main content -->
         <section class="content">
 
-              <div class="panel box box-primary">
+        <div id="details"></div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="box box-primary">
+                <div class="box-header with-border">
+                  <i class="fa fa-bar-chart-o"></i>
+                  <h3 class="box-title">Image</h3>
+                </div>
+                <div class="box-body issue-img-box g-item">
+                  <img src="{{current_issue.imageURL}}" clas="img-responsive" />
+                </div><!-- /.box-body-->
+              </div><!-- /.box -->
+            </div>
+
+            <div class="col-md-6 row">
+              <div class="panel box box-primary col-md-12">
                 <div class="box-header with-border">
                   <h4 class="box-title">
                     Description
@@ -233,101 +248,26 @@
                 </div>
               </div>
 
-
-<!-- Small boxes (Stat box) -->
-          <!-- TABLE: LATEST ORDERS -->
-              <div class="panel box box-primary">
-                <div class="box-header with-border">
-
-                  <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                  </div>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                  <div class="table-responsive">
-                    <table class="table no-margin">
-                      <thead>
-                        <tr>
-                          <th>Time Stamp </th>
-                          <th>Title</th>
-                          <th>Status</th>
-                          <th>Place</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {{#each issues}}
-                          {{> task_table}}
+              <div class="panel box box-success col-md-12">
+                <div id="collapseOne" class="panel-collapse collapse in">
+                  <div class="box-body">
+                    <div class="dropdown">
+                      <button class="btn btn{{label_mapper current_issue.status}} dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        {{current_issue.status}}
+                        <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        {{#each status_list current_issue.status}}
+                          <li><a href="#">{{this}}</a></li>
                         {{/each}}
-                      </tbody>
-                    </table>
-                  </div><!-- /.table-responsive -->
-
-                </div><!-- /.box-body -->
-                <div class="box-footer clearfix">
-                  <a href="allcomplaints.html" class="btn btn-sm btn-default btn-flat pull-right">View All Complaints</a>
-                </div><!-- /.box-footer -->
-              </div><!-- /.box -->
-
-<!-- interactive chart -->
-        <div id = "Charts"></div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="box box-primary">
-                <div class="box-header with-border">
-                  <i class="fa fa-bar-chart-o"></i>
-                  <h3 class="box-title">Interactive Area Chart</h3>
-                  <div class="box-tools pull-right">
-                    Real time
-                    <div class="btn-group" id="realtime" data-toggle="btn-toggle">
-                      <button type="button" class="btn btn-default btn-xs active" data-toggle="on">On</button>
-                      <button type="button" class="btn btn-default btn-xs" data-toggle="off">Off</button>
+                      </ul>
                     </div>
                   </div>
                 </div>
-                <div class="box-body">
-                  <div id="interactive" style="height: 300px;"></div>
-                </div><!-- /.box-body-->
-              </div><!-- /.box -->
+              </div>
             </div>
-
-            <!-- BAR CHART -->
-            <div class="col-md-6">
-              <div class="box box-success">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Bar Chart</h3>
-                  <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                  </div>
-                </div>
-                <div class="box-body">
-                  <div class="chart">
-                    <canvas id="barChart" style="height:295px"></canvas>
-                  </div>
-                </div><!-- /.box-body -->
-              </div><!-- /.box -->
-
-            </div><!-- /.col (RIGHT) -->
           </div><!-- /.row -->
 
-<!-- interactive chart -->
-              <div class="box box-primary">
-                <div class="box-header with-border">
-                  <i class="fa fa-bar-chart-o"></i>
-                  <h3 class="box-title">Interactive Area Chart</h3>
-                  <div class="box-tools pull-right">
-                    Real time
-                    <div class="btn-group" id="realtime" data-toggle="btn-toggle">
-                      <button type="button" class="btn btn-default btn-xs active" data-toggle="on">On</button>
-                      <button type="button" class="btn btn-default btn-xs" data-toggle="off">Off</button>
-                    </div>
-                  </div>
-                </div>
-                <div class="box-body">
-                  <div id="interactive" style="height: 300px;"></div>
-                </div><!-- /.box-body-->
-              </div><!-- /.box -->
 
 <!-- Map box -->
             <div id = "Map"></div>
