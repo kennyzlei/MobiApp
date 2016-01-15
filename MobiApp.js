@@ -51,5 +51,5 @@ Router.route('/dashboard', function () {
 
 Router.route('/logout', function() {
   AccountsTemplates.logout();
-  this.render('Home');
+  Router.go('/');
 });
