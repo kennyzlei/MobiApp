@@ -30,8 +30,20 @@ Template.IssuesList.helpers({
   title: function(){
     return "Status of Submitted"
   },
-  issues: function () {
+  issues: function (){
       // Show newest tasks at the top
       return Issues.find({'userID': this.userId}, {sort: {createdAt: 1}})
-    }
+  }
+});
+
+Template.task.helpers({
+  label_mapper: function(par){
+    var dict = {};
+    //Updates labels for submitted issues
+    dict["open"] = "-warning";
+    dict["rejected"] = "-danger";
+    dict["solved"] = "-success";
+    dict["pending"] = "-info"
+    return dict[par]
+  }
 });
