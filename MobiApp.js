@@ -28,6 +28,7 @@ Router.route('/issue/:_id', function() {
   var issue = Issues.find({_id: this.params._id});
   this.render('Issue',{data: {current_issue: issue.fetch()[0]}});
   this.render('Footer', {to: 'footer'});
+  Session.set('issue_id', this.params._id)
 });
 
 // navigate to About
