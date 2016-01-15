@@ -5,7 +5,6 @@ Issues = new Mongo.Collection('issues');
 Router.onBeforeAction(function () {
   if (!Meteor.userId()) {
     // if the user is not logged in, render the Login template
-    this.layout('ApplicationLayout');
     this.render('Login');
   } else {
     // otherwise don't hold up the rest of hooks or our route/action function
@@ -46,6 +45,5 @@ Router.route('/dashboard', function () {
 
 Router.route('/logout', function() {
   AccountsTemplates.logout();
-  this.layout('ApplicationLayout');
-  this.render('Login');
+  this.render('Home');
 });
