@@ -26,7 +26,7 @@ Template.newIssue.events({
   }
 });
 
-Template.IssuesList.helpers({
+Template.dashboard.helpers({
   title: function(){
     return "Status of Submitted"
   },
