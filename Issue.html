@@ -1,4 +1,4 @@
-<template name="dashboard">
+<template name="Issue">
     <div class="wrapper skin-blue sidebar-mini">
 
       <!-- Main Header -->
@@ -210,79 +210,35 @@
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-          <h1>
-            Dashboard
-            <small> Control Panel</small>
-          </h1>
-          <ol class="breadcrumb">
-            <li><a href="starter.html"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active"></li>
-          </ol>
+          <div class="callout callout{{label_mapper current_issue.status}}" role="alert">
+            <h3>
+              <b>({{current_issue.status}})</b>  {{current_issue.title}}
+            </h3>
+          </div>
         </section>
 
         <!-- Main content -->
         <section class="content">
 
-<!-- Small boxes (Stat box) -->
-          <div class="row">
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-aqua">
-                <div class="inner">
-                  <h3>150</h3>
-                  <p>New</p>
-                </div>
-                <div class="icon">
-                  <i class="fa fa-fw fa-file"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-              </div>
-            </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-yellow">
-                <div class="inner">
-                  <h3>53<sup style="font-size: 20px"></sup></h3>
-                  <p>Pending</p>
-                </div>
-                <div class="icon">
-                  <i class="fa fa-clock-o"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-              </div>
-            </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-green">
-                <div class="inner">
-                  <h3>44</h3>
-                  <p>Solved</p>
-                </div>
-                <div class="icon">
-                  <i class="fa fa-fw fa-check-square"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-              </div>
-            </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-red">
-                <div class="inner">
-                  <h3>65/min</h3>
-                  <p>Rate of New Complaints</p>
-                </div>
-                <div class="icon">
-                  <i class="glyphicon glyphicon-stats"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-              </div>
-            </div><!-- ./col -->
-          </div><!-- /.row -->
-
-          <!-- TABLE: LATEST ORDERS -->
-              <div class="box box-info">
+              <div class="panel box box-primary">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Task Queue</h3>
+                  <h4 class="box-title">
+                    Description
+                  </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in">
+                  <div class="box-body">
+                    {{current_issue.description}}
+                  </div>
+                </div>
+              </div>
+
+
+<!-- Small boxes (Stat box) -->
+          <!-- TABLE: LATEST ORDERS -->
+              <div class="panel box box-primary">
+                <div class="box-header with-border">
+
                   <div class="box-tools pull-right">
                     <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                     <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
@@ -293,9 +249,9 @@
                     <table class="table no-margin">
                       <thead>
                         <tr>
+                          <th>Time Stamp </th>
                           <th>Title</th>
                           <th>Status</th>
-                          <th>Time Stamp </th>
                           <th>Place</th>
                         </tr>
                       </thead>
@@ -488,13 +444,4 @@
            immediately after the control sidebar -->
       <div class="control-sidebar-bg"></div>
     </div><!-- ./wrapper -->
-</template>
-
-<template name="task_table">
-  <tr>
-    <td><a href="/issue/{{_id}}">{{title}}</a></td>
-    <td><span class="label label{{label_mapper status}}">{{status}}</span></td>
-    <td>{{createdAt}}</td>
-    <td>GPS ADRESS</td>
-  </tr>
 </template>
