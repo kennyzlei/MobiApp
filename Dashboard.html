@@ -229,8 +229,8 @@
               <!-- small box -->
               <div class="small-box bg-aqua">
                 <div class="inner">
-                  <h3>150</h3>
-                  <p>New</p>
+                  <h3>{{count_by_status "pending"}}</h3>
+                  <p>Pending</p>
                 </div>
                 <div class="icon">
                   <i class="fa fa-fw fa-file"></i>
@@ -242,8 +242,8 @@
               <!-- small box -->
               <div class="small-box bg-yellow">
                 <div class="inner">
-                  <h3>53<sup style="font-size: 20px"></sup></h3>
-                  <p>Pending</p>
+                  <h3>{{count_by_status "open"}}<sup style="font-size: 20px"></sup></h3>
+                  <p>Open</p>
                 </div>
                 <div class="icon">
                   <i class="fa fa-clock-o"></i>
@@ -255,7 +255,7 @@
               <!-- small box -->
               <div class="small-box bg-green">
                 <div class="inner">
-                  <h3>44</h3>
+                  <h3>{{count_by_status "solved"}}</h3>
                   <p>Solved</p>
                 </div>
                 <div class="icon">
