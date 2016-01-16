@@ -5,9 +5,15 @@ Template.dashboard.onRendered(function() {
 Template.dashboard.helpers({
   issues: function (){
     // Show newest tasks at the top
-    var filter = Session.get('status_filter');
+    var filter = {};
 
-    return Issues.find({status: filter}, {sort: {createdAt: 1}})
+    if(Session.equals('status_filter', 'all') || Session.equals('status_filter', undefined)){
+      filter = {};
+    } else {
+      filter = {status: Session.get('status_filter')};
+    }
+
+    return Issues.find(filter, {sort: {createdAt: 1}});
   },
   init: function () {
       Meteor.defer(function(){
@@ -72,11 +78,15 @@ Template.dashboard.helpers({
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
     }
+=======
+
+>>>>>>> Properly filtering issues by status
   }
 });
 
 Template.dashboard.events({
   'click a.status-filter': function(event, template){
+
     var newValue = event.target.id;
     Session.set('status_filter', newValue);
   }
