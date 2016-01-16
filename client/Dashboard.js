@@ -5,7 +5,9 @@ Template.dashboard.onRendered(function() {
 Template.dashboard.helpers({
   issues: function (){
     // Show newest tasks at the top
-    return Issues.find({}, {sort: {createdAt: 1}})
+    var filter = Session.get('status_filter');
+
+    return Issues.find({status: filter}, {sort: {createdAt: 1}})
   },
   init: function () {
       Meteor.defer(function(){
@@ -17,8 +19,8 @@ Template.dashboard.helpers({
                 ['10:10h',  2,      	0],
                 ['10:14h',  1,        2],
                 ['10:15h',  3,        1],
-                ['10:16h',  1,        3],	
-                ['10:18h',  1,        3]	
+                ['10:16h',  1,        3],
+                ['10:18h',  1,        3]
             ]);
             var options = {
                 title: 'Complaints per time',
@@ -27,7 +29,7 @@ Template.dashboard.helpers({
             };
             var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
             chart.draw(data, options);
-                            
+
             var data2 = google.visualization.arrayToDataTable([
                 ["Month", "New", "Solved", { role: "style" } ],
                 ["January", 8.94,8.94, "#b87333"],
@@ -70,5 +72,12 @@ Template.dashboard.helpers({
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
     }
+  }
+});
+
+Template.dashboard.events({
+  'click a.status-filter': function(event, template){
+    var newValue = event.target.id;
+    Session.set('status_filter', newValue);
   }
 });
