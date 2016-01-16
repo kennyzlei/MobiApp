@@ -78,9 +78,6 @@ Template.dashboard.helpers({
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
     }
-=======
-
->>>>>>> Properly filtering issues by status
   }
 });
 
