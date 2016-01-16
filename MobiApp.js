@@ -35,7 +35,6 @@ Router.route('/issue/:_id', function() {
 Router.route('/about', function () {
   this.layout('ApplicationLayout');
   this.render('About');
-  this.render('Footer', {to: 'footer'});
 });
 
 //navigate to submited issues
