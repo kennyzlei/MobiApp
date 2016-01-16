@@ -71,7 +71,7 @@
       <label for="issue-description" class="col-lg-2 control-label">Description</label>
       <div class="col-lg-10">
         <span class="help-block">Give us a short description.</span>
-        <textarea class="form-control" rows="1" name="description" id="issue-description" placeholder="Describe here"></textarea>
+        <input class="form-control" rows="1" name="description" id="issue-description" placeholder="Describe here">
       </div>
     </div>
 
@@ -153,16 +153,19 @@
       <label for="issue-description" class="col-lg-2 control-label">Localization</label>
       <div class="col-lg-10">
         <span class="help-block">What is the location?</span>
+        <div class="col-xs-4" id="map"></div>
       </div>
 </div>
 </template>
 
 <template name="LocationForm">
 <div class="form-group has-warning">
-      <label for="issue-description" class="col-lg-2 control-label">Localization</label>
+      <label for="location-description" class="col-lg-2 control-label">Localization</label>
       <div class="col-lg-10">
         <span class="help-block">You have your GPS off so provide us with the address</span>
-        <textarea class="form-control" rows="3" name="description" id="issue-description" placeholder="Where it happened?"></textarea>
+        <textarea class="form-control" rows="1" name="description" id="location-description" placeholder="Where it happened?"></textarea>
+        <br>
+        <div class="container" id="map"></div>
       </div>
 </div>
 </template>

@@ -1471,6 +1471,7 @@ dd {
     margin-left: 180px;
   }
 }
+
 abbr[title],
 abbr[data-original-title] {
   cursor: help;
@@ -6937,4 +6938,11 @@ a.list-group-item-danger.active:focus {
 }
 .popover {
   color: #333333;
+}
+#map,
+#map2 {
+  width: 400px;
+  height: 300px;
+  background: #666;
+  margin-bottom: 30px;
 }
