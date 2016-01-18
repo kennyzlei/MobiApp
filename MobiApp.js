@@ -53,3 +53,4 @@ Router.route('/logout', function() {
   AccountsTemplates.logout();
   Router.go('/');
 });
+

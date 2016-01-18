@@ -3,6 +3,7 @@
 </head>
 
 <template name="ApplicationLayout">
+  <!--<h1>{{i18n 'helloWorld'}}</h1>-->
   <body>
     <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -13,13 +14,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">MobiAPP</a>
+        <a class="navbar-brand" href="/">   
+         <span class="logo-lg"> <img src="images/MobiAppLogo2.png" style="width: 20%; height: 100%" alt="User Image"></span></a>
       </div>
 
       <div class="hidden-xs hidden-sm collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="/new-issue">New Issue</a></li>
-          <li><a href="/issues-list">See Submitted</a></li>
+          <li><a href="/new-issue">{{i18n 'NewIssue'}}</a></li>
+          <li><a href="/issues-list">{{i18n 'SeeSubmitted'}}</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/about">About Us</a></li>
