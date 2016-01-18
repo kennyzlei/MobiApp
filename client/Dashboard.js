@@ -20,6 +20,12 @@ Template.dashboard.helpers({
         google.charts.load('current', {'packages':['corechart']});
         google.charts.setOnLoadCallback(drawChart);
         function drawChart() {
+
+            var open_issues = Issues.find({status: "open"});
+            var pending_issues = Issues.find({status: "pending"});
+            var solved_issues = Issues.find({status: "solved"});
+            var open_issues = Issues.find({status: "open"});
+
             var data = google.visualization.arrayToDataTable([
                 ['Time', 'New', 'Pending'],
                 ['10:10h',  2,      	0],
