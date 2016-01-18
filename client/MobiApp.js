@@ -12,8 +12,9 @@ Template.newIssue.events({
     Session.set("flag_d", "");
     Session.set("flag_l", "");
     console.log(title, description, location);
+    
     if (title && description && Geolocation.latLng()) {
-        Issues.insert({
+        /*Issues.insert({
             title: title,
             description: description,
             status: 'pending',
@@ -25,12 +26,15 @@ Template.newIssue.events({
             lastModified: new Date(),
             updates: updateStatus
 
-        });
+        });*/
+        // Insert a task into the collection
+        //(title, description, lat, lon, user_id, imageURL, updateStatus)
+        Meteor.call("addIssueGps", title, description, Geolocation.latLng().lat, Geolocation.latLng().lng, Meteor.userId(), imageURL, updateStatus);
         console.log(Geolocation.latLng());
         Router.go('/issues-list');
     } 
     if (title && description && location){
-            Issues.insert({
+            /*Issues.insert({
                 title: title,
                 description: description + " Location: " + location,
                 status: 'pending',
@@ -42,7 +46,9 @@ Template.newIssue.events({
                 lastModified: new Date(),
                 updates: updateStatus
 
-            });
+            });*/
+//(title, description, user_id, imageURL, updateStatus, location)
+            Meteor.call("addIssueLocation", title, description, Meteor.userId(), imageURL, updateStatus, location);
             Router.go('/issues-list');      
     }
     if (!title) {
