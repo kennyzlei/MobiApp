@@ -5,10 +5,14 @@ Template.newIssue.events({
     event.preventDefault();
     var title = event.target.title.value;
     var description = event.target.description.value;
+    var location = event.target.location.value;
     var imageURL = Session.get('imageURL');
     var updateStatus = event.target.updcheck.checked;
-    console.log(title, description);
-    if (title && description) {
+    Session.set("flag_t", "");
+    Session.set("flag_d", "");
+    Session.set("flag_l", "");
+    console.log(title, description, location);
+    if (title && description && Geolocation.latLng()) {
         Issues.insert({
             title: title,
             description: description,
@@ -22,12 +26,52 @@ Template.newIssue.events({
             updates: updateStatus
 
         });
+        console.log(Geolocation.latLng());
         Router.go('/issues-list');
-    } else {
-        console.log("form not valid");
+    } 
+    if (title && description && location){
+            Issues.insert({
+                title: title,
+                description: description + " Location: " + location,
+                status: 'pending',
+                lat: false,
+                lng: false,
+                userID: Meteor.userId(),
+                imageURL: imageURL,
+                createdAt: new Date(),
+                lastModified: new Date(),
+                updates: updateStatus
+
+            });
+            Router.go('/issues-list');      
+    }
+    if (!title) {
+        Session.set("flag_t", "has-error");
+        console.log("invalid form: No title");
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+    }
+    if (!description){
+        Session.set("flag_d", "has-error");
+        console.log("invalid form: No description");
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
+    }
+    if (!location){
+      Session.set("flag_l", "has-error");
+      console.log("invalid form: No location description");
+      document.body.scrollTop = document.documentElement.scrollTop = 0;
     }
   }
 });
+
+
+Template.LocationForm.helpers({
+  flagLocation: function(){
+    var title = "";
+    if ( Session.get('flag_l') ) title = Session.get('flag_l');
+    return title;
+  } 
+});
+
 
 Template.newIssue.helpers({
   showMap: function(){
@@ -39,7 +83,17 @@ Template.newIssue.helpers({
     else{
       return false;
     }
-  }
+  },
+  flagTitle: function(){
+    var title = "";
+    if ( Session.get('flag_t') ) title = Session.get('flag_t');
+    return title;
+  },
+  flagDescription: function(){
+    var title = "";
+    if ( Session.get('flag_d') ) title = Session.get('flag_d');
+    return title;
+  }   
 });
 
 Template.IssuesList.helpers({
