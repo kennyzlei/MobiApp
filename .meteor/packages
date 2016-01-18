@@ -28,3 +28,4 @@ mdg:geolocation
 fortawesome:fontawesome
 useraccounts:bootstrap
 dburles:google-maps
+jaymc:google-reverse-geocode

@@ -29,9 +29,14 @@ Template.newIssue.events({
         });*/
         // Insert a task into the collection
         //(title, description, lat, lon, user_id, imageURL, updateStatus)
-        Meteor.call("addIssueGps", title, description, Geolocation.latLng().lat, Geolocation.latLng().lng, Meteor.userId(), imageURL, updateStatus);
-        console.log(Geolocation.latLng());
-        Router.go('/issues-list');
+        var lat = Geolocation.latLng().lat;
+        var lng = Geolocation.latLng().lng;
+        reverseGeocode.getLocation(lat, lng, function(location){
+            var addressString = reverseGeocode.getAddrStr();
+            Meteor.call("addIssueGps", title, description, lat, lng, addressString, Meteor.userId(), imageURL, updateStatus);
+            console.log(Geolocation.latLng());
+            Router.go('/issues-list');
+        });
     } 
     if (title && description && location){
             /*Issues.insert({
