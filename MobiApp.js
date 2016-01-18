@@ -26,9 +26,13 @@ Router.route('/new-issue', function () {
 
 Router.route('/issue/:_id', function() {
   var issue = Issues.find({_id: this.params._id});
-  this.render('Issue',{data: {current_issue: issue.fetch()[0]}});
+  var current_issue = issue.fetch()[0];
+  this.render('Issue',{data: {current_issue: current_issue}});
   this.render('Footer', {to: 'footer'});
-  Session.set('issue_id', this.params._id)
+  Session.set('issue_id', this.params._id);
+  console.log("Router lat:"+ current_issue.lat);
+  Session.set('lat', current_issue.lat);
+  Session.set('lng', current_issue.lng);
 });
 
 // navigate to About

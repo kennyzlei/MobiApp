@@ -2,6 +2,25 @@ Template.dashboard.onRendered(function() {
   GoogleMaps.load();
 });
 
+Template.dashboard.onCreated(function() {
+    GoogleMaps.ready('issueMap', function(map) {
+      // Add a marker to the map once it's ready
+
+      // Show newest tasks at the top
+      var filter = {};
+
+      if(Session.equals('status_filter', 'all') || Session.equals('status_filter', undefined)){
+        filter = {};
+      } else {
+        filter = {status: Session.get('status_filter')};
+      }
+
+      var issues = Issues.find(filter, {sort: {createdAt: 1}});
+      globalMap = map;
+      addMarkers(issues.fetch());
+    });
+});
+
 Template.dashboard.helpers({
   issues: function (){
     // Show newest tasks at the top
@@ -12,27 +31,64 @@ Template.dashboard.helpers({
     } else {
       filter = {status: Session.get('status_filter')};
     }
-
-    return Issues.find(filter, {sort: {createdAt: 1}});
+    
+    var issues = Issues.find(filter, {sort: {createdAt: 1}});
+    addMarkers(issues.fetch());
+    return issues;
   },
   init: function () {
       Meteor.defer(function(){
         google.charts.load('current', {'packages':['corechart']});
         google.charts.setOnLoadCallback(drawChart);
         function drawChart() {
+            var one_hour = (1000*60*60);
+            var now = new Date();
+            var one_hour_ago = new Date(new Date().getTime() - one_hour);
+            var two_hour_ago = new Date(new Date().getTime() - 2*one_hour);
+            var three_hour_ago = new Date(new Date().getTime() - 3*one_hour);
+            var four_hour_ago = new Date(new Date().getTime() - 4*one_hour);
 
-            var open_issues = Issues.find({status: "open"});
-            var pending_issues = Issues.find({status: "pending"});
-            var solved_issues = Issues.find({status: "solved"});
-            var open_issues = Issues.find({status: "open"});
+            console.log(now);
+            console.log(one_hour_ago);
+            console.log(four_hour_ago);
+
 
             var data = google.visualization.arrayToDataTable([
-                ['Time', 'New', 'Pending'],
-                ['10:10h',  2,      	0],
-                ['10:14h',  1,        2],
-                ['10:15h',  3,        1],
-                ['10:16h',  1,        3],
-                ['10:18h',  1,        3]
+              [
+                'Time',
+                'Open',
+                'Pending',
+                'Solved',
+                'Rejected'
+              ],
+              [
+                'Four hours ago',
+                Issues.find({status: "open",lastModified:{$gte:four_hour_ago, $lt:three_hour_ago}}).count(),
+                Issues.find({status: "pending",lastModified:{$gte:four_hour_ago, $lt:three_hour_ago}}).count(),
+                Issues.find({status: "solved",lastModified:{$gte:four_hour_ago, $lt:three_hour_ago}}).count(),
+                Issues.find({status: "rejected",lastModified:{$gte:four_hour_ago, $lt:three_hour_ago}}).count()
+              ],
+              [
+                'Three hours ago',
+                Issues.find({status: "open",lastModified:{$gte:three_hour_ago, $lt:two_hour_ago}}).count(),
+                Issues.find({status: "pending",lastModified:{$gte:three_hour_ago, $lt:two_hour_ago}}).count(),
+                Issues.find({status: "solved",lastModified:{$gte:three_hour_ago, $lt:two_hour_ago}}).count(),
+                Issues.find({status: "rejected",lastModified:{$gte:three_hour_ago, $lt:two_hour_ago}}).count()
+              ],
+              [
+                'Two hours ago',
+                Issues.find({status: "open",lastModified:{$gte:two_hour_ago, $lt:one_hour_ago}}).count(),
+                Issues.find({status: "pending",lastModified:{$gte:two_hour_ago, $lt:one_hour_ago}}).count(),
+                Issues.find({status: "solved",lastModified:{$gte:two_hour_ago, $lt:one_hour_ago}}).count(),
+                Issues.find({status: "rejected",lastModified:{$gte:two_hour_ago, $lt:one_hour_ago}}).count()
+              ],
+              [
+                'One hour ago',
+                Issues.find({status: "open",lastModified:{$gte:one_hour_ago, $lt:now}}).count(),
+                Issues.find({status: "pending",lastModified:{$gte:one_hour_ago, $lt:now}}).count(),
+                Issues.find({status: "solved",lastModified:{$gte:one_hour_ago, $lt:now}}).count(),
+                Issues.find({status: "rejected",lastModified:{$gte:one_hour_ago, $lt:now}}).count()
+              ]
             ]);
             var options = {
                 title: 'Complaints per time',
@@ -94,3 +150,23 @@ Template.dashboard.events({
     Session.set('status_filter', newValue);
   }
 });
+
+var globalMap = null;
+var markers = [];
+
+function addMarkers(items) {
+    if (globalMap) {
+        // clear markers
+        for (var i = 0; i < markers.length; i++) {
+            markers[i].setMap(null);
+        }
+        markers = [];
+        items.forEach(function(item){
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(item.lat, item.lng),
+                map: globalMap.instance
+            });
+            markers.push(marker);
+        })
+    }
+}
