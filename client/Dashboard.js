@@ -2,6 +2,25 @@ Template.dashboard.onRendered(function() {
   GoogleMaps.load();
 });
 
+Template.dashboard.onCreated(function() {
+    GoogleMaps.ready('issueMap', function(map) {
+      // Add a marker to the map once it's ready
+
+      // Show newest tasks at the top
+      var filter = {};
+
+      if(Session.equals('status_filter', 'all') || Session.equals('status_filter', undefined)){
+        filter = {};
+      } else {
+        filter = {status: Session.get('status_filter')};
+      }
+
+      var issues = Issues.find(filter, {sort: {createdAt: 1}});
+      globalMap = map;
+      addMarkers(issues.fetch());
+    });
+});
+
 Template.dashboard.helpers({
   issues: function (){
     // Show newest tasks at the top
@@ -12,8 +31,10 @@ Template.dashboard.helpers({
     } else {
       filter = {status: Session.get('status_filter')};
     }
-
-    return Issues.find(filter, {sort: {createdAt: 1}});
+    
+    var issues = Issues.find(filter, {sort: {createdAt: 1}});
+    addMarkers(issues.fetch());
+    return issues;
   },
   init: function () {
       Meteor.defer(function(){
@@ -94,3 +115,23 @@ Template.dashboard.events({
     Session.set('status_filter', newValue);
   }
 });
+
+var globalMap = null;
+var markers = [];
+
+function addMarkers(items) {
+    if (globalMap) {
+        // clear markers
+        for (var i = 0; i < markers.length; i++) {
+            markers[i].setMap(null);
+        }
+        markers = [];
+        items.forEach(function(item){
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(item.lat, item.lng),
+                map: globalMap.instance
+            });
+            markers.push(marker);
+        })
+    }
+}
