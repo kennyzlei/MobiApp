@@ -15,7 +15,7 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="/">   
-         <span class="logo-lg"> <img src="images/MobiAppLogo2.png" style="width: 20%; height: 100%" alt="User Image"></span></a>
+         <span class="logo-lg"> <img src="images/MobiAppLogo2.png" style="width: 10%; height: 100%" alt="User Image"></span></a>
       </div>
 
       <div class="hidden-xs hidden-sm collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -68,21 +68,21 @@
 <template name="newIssue">
 <form class="form-horizontal">
   <fieldset>
-    <legend>Submit the issue</legend>
+    <legend>{{i18n 'SubmitTheIssue'}}</legend>
 
     <div class="form-group {{flagTitle}}" >
-      <label for="issue-title" class="col-lg-2 control-label">Title</label>
+      <label for="issue-title" class="col-lg-2 control-label">{{i18n 'Title'}}</label>
       <div class="col-lg-10">
-        <span class="help-block">How would you call what you report?</span>
-        <input name="title" type="text" class="form-control" id="issue-title" placeholder="Title of issue">
+        <span class="help-block">{{i18n 'HowCall'}}</span>
+        <input name="title" type="text" class="form-control" id="issue-title" placeholder={{i18n 'TitleOfIssue'}}>
       </div>
     </div>
   
     <div class="form-group {{flagDescription}}">
-      <label for="issue-description" class="col-lg-2 control-label">Description</label>
+      <label for="issue-description" class="col-lg-2 control-label">{{i18n 'Description'}}</label>
       <div class="col-lg-10">
-        <span class="help-block">Give us a short description.</span>
-        <textarea class="form-control" rows="1" name="description" id="issue-description" placeholder="Describe here"></textarea>
+        <span class="help-block">{{i18n 'GiveShort'}}</span>
+        <textarea class="form-control" rows="1" name="description" id="issue-description" placeholder={{i18n 'DescribeHere'}}></textarea>
       </div>
     </div>
 
@@ -93,9 +93,9 @@
     {{/if}}
 
     <div class="form-group">
-      <label for="file-submit" class="col-lg-2 control-label">Photo</label>
+      <label for="file-submit" class="col-lg-2 control-label">{{i18n 'Photo'}}</label>
       <div class="col-lg-10" id="file-submit">
-        <span class="help-block">Show us how it looks like.</span>
+        <span class="help-block">{{i18n 'ShowUs'}}</span>
         <input type="file" class="myFileInput"  accept="image/*">
       </div>
     </div>
@@ -161,10 +161,10 @@
 
 <template name="GoogleMap">
 <div class="form-group {{flagLocation}}">
-      <label for="issue-description" class="col-lg-2 control-label">Location</label>
+      <label for="issue-description" class="col-lg-2 control-label">{{i18n 'Location'}}</label>
       <div class="col-lg-10">
-        <span class="help-block">We have your GPS location, but provide us with any important details.</span>
-        <textarea class="form-control" rows="2" name="location" id="issue-location" placeholder="Where it happened?"></textarea>
+        <span class="help-block">{{i18n 'GpsDetail'}}</span>
+        <textarea class="form-control" rows="2" name="location" id="issue-location" placeholder={{i18n 'WhereIt'}}></textarea>
       </div>
 </div>
 </template>
