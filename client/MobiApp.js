@@ -5,13 +5,7 @@ Template.newIssue.onRendered(function()
   console.log(i18n('helloWorld'));
   var localeFromBrowser = window.navigator.userLanguage || window.navigator.language;
   var locale = 'br';
-  if (localeFromBrowser.match(/br/)) {
-    locale = 'en';
-  }
-  else if (localeFromBrowser.match(/en/)) {
-    locale = 'br';
-  }
-  i18n.setLanguage(locale);
+    i18n.setLanguage(locale);
 })
 
 Template.newIssue.events({
