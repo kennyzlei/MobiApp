@@ -34,6 +34,7 @@ Template.Issue.events({
     var newValue = $(event.target).parent()[0].id
     var id = Session.get('issue_id');
 
-    Issues.update(id, {$set: {status: newValue, lastModified: new Date()}});
+    Meteor.call("updateIssueStatus", id, status);
+    // Issues.update(id, {$set: {status: newValue, lastModified: new Date()}});
   }
 });

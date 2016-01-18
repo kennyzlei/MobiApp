@@ -31,7 +31,7 @@ Template.dashboard.helpers({
     } else {
       filter = {status: Session.get('status_filter')};
     }
-    
+
     var issues = Issues.find(filter, {sort: {createdAt: 1}});
     addMarkers(issues.fetch());
     return issues;
