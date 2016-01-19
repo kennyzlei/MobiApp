@@ -52,7 +52,7 @@ Template.newIssue.events({
             Router.go('/issues-list');
         });
     } 
-    if (title && description && location){
+    else if (title && description && location){
             /*Issues.insert({
                 title: title,
                 description: description + " Location: " + location,
