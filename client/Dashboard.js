@@ -48,13 +48,51 @@ Template.dashboard.helpers({
             var three_hour_ago = new Date(new Date().getTime() - 3*one_hour);
             var four_hour_ago = new Date(new Date().getTime() - 4*one_hour);
 
-            console.log(now);
-            console.log(one_hour_ago);
-            console.log(four_hour_ago);
-
+            var one_month = (1000*60*60*24*30);
+            var now = new Date();
+            var one_month_ago = new Date(new Date().getTime() - one_month);
+            var two_month_ago = new Date(new Date().getTime() - 2*one_month);
+            var three_month_ago = new Date(new Date().getTime() - 3*one_month);
+            var four_month_ago = new Date(new Date().getTime() - 4*one_month);
 
             var data = google.visualization.arrayToDataTable([
               [
+                'Time',
+                'Pending',
+                'Solved'
+              ],
+              [
+                'Four months ago',
+                Issues.find({status: "pending",lastModified:{$gte:four_month_ago, $lt:three_month_ago}}).count(),
+                Issues.find({status: "solved",lastModified:{$gte:four_month_ago, $lt:three_month_ago}}).count()
+              ],
+              [
+                'Three months ago',
+                Issues.find({status: "pending",lastModified:{$gte:three_month_ago, $lt:two_month_ago}}).count(),
+                Issues.find({status: "solved",lastModified:{$gte:three_month_ago, $lt:two_month_ago}}).count()
+              ],
+              [
+                'Two months ago',
+                Issues.find({status: "pending",lastModified:{$gte:two_month_ago, $lt:one_month_ago}}).count(),
+                Issues.find({status: "solved",lastModified:{$gte:two_month_ago, $lt:one_month_ago}}).count()
+              ],
+              [
+                'One month ago',
+                Issues.find({status: "pending",lastModified:{$gte:one_month_ago, $lt:now}}).count(),
+                Issues.find({status: "solved",lastModified:{$gte:one_month_ago, $lt:now}}).count()
+              ]
+            ]);
+            var options = {
+                title: 'Resolution Time',
+                curveType: 'function',
+                legend: { position: 'below' }
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+            chart.draw(data, options);
+
+            var data2 = google.visualization.arrayToDataTable([
+                [
                 'Time',
                 'Open',
                 'Pending',
@@ -90,38 +128,10 @@ Template.dashboard.helpers({
                 Issues.find({status: "rejected",lastModified:{$gte:one_hour_ago, $lt:now}}).count()
               ]
             ]);
-            var options = {
-                title: 'Complaints per time',
-                curveType: 'function',
-                legend: { position: 'below' }
-            };
-            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-            chart.draw(data, options);
-
-            var data2 = google.visualization.arrayToDataTable([
-                ["Month", "New", "Solved", { role: "style" } ],
-                ["January", 8.94,8.94, "#b87333"],
-                ["February", 10.49,8.94, "silver"],
-                ["March", 19.30,8.94, "gold"],
-                ["April", 21.45,8.94, "color: #e5e4e2"],
-                ["May", 21.45,8.94, "color: #e5e4e2"],
-                ["June", 21.45,8.94, "color: #e5e4e2"],
-                ["July", 21.45,8.94, "color: #e5e4e2"],
-                ["August", 21.45,8.94, "color: #e5e4e2"],
-                ["September", 21.45,8.94, "color: #e5e4e2"],
-                ["October", 21.45,8.94, "color: #e5e4e2"],
-                ["November", 21.45,8.94, "color: #e5e4e2"],
-                ["December", 21.45,8.94, "color: #e5e4e2"]
-            ]);
             var view2 = new google.visualization.DataView(data2);
-            view2.setColumns([0, 1,
-                            { calc: "stringify",
-                                sourceColumn: 1,
-                                type: "string",
-                                role: "annotation" },
-                            2]);
+
             var options2 = {
-            title: "Complaints per month",
+            title: "Status track",
             bar: {groupWidth: "95%"},
             legend: { position: "below" },
             };
