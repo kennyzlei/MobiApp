@@ -30,3 +30,4 @@ useraccounts:bootstrap
 dburles:google-maps
 anti:i18n
 jaymc:google-reverse-geocode
+momentjs:moment
